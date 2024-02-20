@@ -6,5 +6,7 @@ metadata:
 spec:
   sourceRef:
     kind: GitRepository
-    name: eks-example
+    name: flux-system
   path: ./flux/infra
+  interval: 1m
+  prune: true
