@@ -41,7 +41,7 @@ gitops:
       repository: eks-example
       branch: main
       namespace: flux-system
-      path: flux
+      path: flux/flux-system
 
 cloudWatch:
   clusterLogging:
@@ -65,6 +65,7 @@ cloudWatch:
 #         id: subnet-b0c1d2e3f4g5h63d1
 
 iam:
+  withOIDC: true
   # Example of setting up Pod Identity Associations:
   # https://github.com/eksctl-io/eksctl/blob/main/examples/39-pod-identity-association.yaml
   podIdentityAssociations:
