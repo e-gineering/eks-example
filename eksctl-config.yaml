@@ -83,3 +83,8 @@ iam:
       namespace: kube-system
       wellKnownPolicies:
         autoScaler: true
+
+    - serviceAccountName: aws-load-balancer-controller
+      namespace: kube-system
+      wellKnownPolicies:
+        awsLoadBalancerController: true
