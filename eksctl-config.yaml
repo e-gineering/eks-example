@@ -22,7 +22,11 @@ managedNodeGroups:
     maxSize: 10
 
 addons:
+  - name: aws-ebs-csi-driver
+    version: latest
   - name: coredns
+    version: latest
+  - name: eks-pod-identity-agent
     version: latest
   - name: kube-proxy
     version: latest
@@ -62,3 +66,6 @@ cloudWatch:
 
 iam:
   withOIDC: true
+  # Example of setting up Pod Identity Associations:
+  # https://github.com/eksctl-io/eksctl/blob/main/examples/39-pod-identity-association.yaml
+  # podIdentityAssociations:
