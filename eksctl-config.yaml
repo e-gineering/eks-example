@@ -41,7 +41,7 @@ gitops:
       repository: eks-example
       branch: main
       namespace: flux-system
-      path: flux/infra
+      path: flux
 
 cloudWatch:
   clusterLogging:
