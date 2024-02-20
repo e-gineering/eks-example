@@ -10,3 +10,8 @@ spec:
   path: ./flux/infra
   interval: 1m
   prune: true
+  dependsOn:
+    - name: prereqs
+  postBuild:
+    substitute:
+      CLUSTER_NAME: eks-example

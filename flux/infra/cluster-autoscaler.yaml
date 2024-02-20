@@ -1,0 +1,42 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: cluster-autoscaler
+  namespace: flux-system
+spec:
+  interval: 60m
+  url: https://kubernetes.github.io/autoscaler
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cluster-autoscaler
+  namespace: kube-system
+spec:
+  interval: 5m0s
+  chart:
+    spec:
+      chart: cluster-autoscaler
+      version: "9.34.1"
+      sourceRef:
+        kind: HelmRepository
+        name: cluster-autoscaler
+        namespace: flux-system
+      reconcileStrategy: ChartVersion
+  # Default values:
+  # https://github.com/kubernetes/autoscaler/blob/master/charts/cluster-autoscaler/values.yaml
+  values:
+    autoDiscovery:
+      clusterName: ${CLUSTER_NAME}
+    rbac:
+      create: true
+      serviceAccount:
+        create: false
+        name: cluster-autoscaler
+    cloudProvider: aws
+    awsRegion: us-east-2
+    priorityClassName: system-node-critical
+    extraArgs:
+      skip-nodes-with-local-storage: false
+      skip-nodes-with-system-pods: false
