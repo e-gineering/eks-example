@@ -12,5 +12,8 @@
             "repo": "eksctl-io/eksctl",
             "binaryNames": "eksctl"
         }
-    }
+    },
+    "postCreateCommand": "sh .devcontainer/post-create.sh"
+
+
 }
