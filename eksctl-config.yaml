@@ -68,8 +68,8 @@ iam:
   # Example of setting up Pod Identity Associations:
   # https://github.com/eksctl-io/eksctl/blob/main/examples/39-pod-identity-association.yaml
   podIdentityAssociations:
-    - namespace: kube-system
-      serviceAccountName: external-secrets
+    - serviceAccountName: external-secrets
+      namespace: kube-system
       # https://external-secrets.io/latest/provider/aws-parameter-store/#iam-policy
       permissionPolicy:
         Version: "2012-10-17"
@@ -78,3 +78,8 @@ iam:
             Action:
               - ssm:GetParameter*
             Resource: "*"
+
+    - serviceAccountName: cluster-autoscaler
+      namespace: kube-system
+      wellKnownPolicies:
+        autoScaler: true
