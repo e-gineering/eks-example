@@ -10,3 +10,5 @@ spec:
   path: ./flux/apps
   dependsOn:
     - name: infra
+  interval: 1m
+  prune: true
