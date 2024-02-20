@@ -38,3 +38,9 @@ addons:
 #       branch: main
 #       namespace: flux-system
 #       path: flux/init
+
+# Example of using an existing VPC:
+# https://github.com/eksctl-io/eksctl/blob/main/examples/04-existing-vpc.yaml
+# vpc:
+#   id: vpc-0a1b2c3d4e5f6g7h8
+
