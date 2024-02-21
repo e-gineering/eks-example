@@ -1,5 +1,8 @@
 # eks-example
 
+> [!WARNING]
+> Still in-progress at this point.
+
 Set up your AWS creds with `aws configure`.
 
 Make a Github Personal Access Token with `repo` set as the scope:
